@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Savers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header with Menu */
+        .site-header {
+            background-color: rgba(34, 139, 34, 0.9);
+            color: #fff;
+            border-bottom: 5px solid #228B22;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 2rem;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f8d84b;
+        }
+
+        /* Spacing for Fixed Header */
+        main {
+            margin-top: 100px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: #228B22;
+            font-family: 'Lobster', cursive;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 2rem 0;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-family: 'Lobster', cursive;
+            color: #228B22;
+        }
+
+        .features ul {
+            margin-top: 1rem;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .impact h2 {
+            font-family: 'Lobster', cursive;
+            color: #228B22;
+        }
+
+        .impact ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .impact li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        /* Call-to-Action Section */
+        .call-to-action {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #228B22;
+            color: #fff;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .call-to-action h2 {
+            font-family: 'Lobster', cursive;
+        }
+
+        .call-to-action p {
+            margin: 1rem 0;
+        }
+
+        .call-to-action .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #fff;
+            color: #228B22;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .call-to-action .button:hover {
+            background-color: #228B22;
+            color: #fff;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: rgba(34, 139, 34, 0.9);
+            color: #fff;
+            margin-top: 2rem;
+            border-top: 5px solid #228B22;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Wildlife Savers</h1>
+            <nav class="menu">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/upload">Upload</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Revolutionizing Wildlife Conservation</h2>
+                    <p>Wildlife Savers is at the forefront of technological innovation, developing AI-powered solutions to safeguard our planet's precious ecosystems. Our cutting-edge detection software, seamlessly integrated with camera systems, empowers organizations to:</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Real-time monitoring:</strong> Instant alerts for critical events.</li>
+                    <li><strong>Advanced AI algorithms:</strong> Accurate detection and classification.</li>
+                    <li><strong>User-friendly interface:</strong> Easy to use and manage.</li>
+                    <li><strong>Scalable solutions:</strong> Customizable to fit diverse needs.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact">
+            <div class="container">
+                <h2>Making a Difference</h2>
+                <p>Our solutions are making a tangible impact on wildlife conservation efforts worldwide:</p>
+                <ul>
+                    <li><strong>Protecting endangered species:</strong> Safeguarding vulnerable populations.</li>
+                    <li><strong>Combating poaching and illegal wildlife trade:</strong> Disrupting criminal networks.</li>
+                    <li><strong>Monitoring forest health:</strong> Detecting deforestation and wildfires early.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="call-to-action">
+            <div class="container">
+                <h2>Join Us in Protecting Our Planet</h2>
+                <p>Learn more about our solutions and how you can contribute to a sustainable future.</p>
+                <a href="contact.html" class="button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Wildlife Savers | Designed with care for nature</p>
+        </div>
+    </footer>
+</body>
+
+</html>

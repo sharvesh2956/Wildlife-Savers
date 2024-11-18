@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video</title>
+    <style>
+        /* General Reset */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #ADD8E6; /* Light blue water color */
+            height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #90EE90; /* Light green color */
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px; /* Spacing between menu items */
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #f8d84b;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            margin-top: 100px; /* Leave space for fixed header */
+            padding: 20px;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .video-preview {
+            width: 60%;
+            max-height: 400px;
+            position: relative;
+        }
+
+        .detection-results {
+            width: 35%;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header with Menu -->
+    <div class="header">
+        <nav class="menu">
+            <a href="/">Home</a>
+            <a href="/upload">Upload Video</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Upload Video for Live Detection</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="video-file" accept="video/*" required>
+            <button type="button" id="upload-button">Upload</button>
+        </form>
+        <div class="video-container">
+            <div class="video-preview">
+                <video id="video-preview" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <canvas id="canvas-overlay"></canvas>
+        
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("upload-button").addEventListener("click", async () => {
+            const fileInput = document.getElementById("video-file");
+            const videoPlayer = document.getElementById("video-preview");
+            const formData = new FormData();
+
+            if (!fileInput.files[0]) {
+                alert("Please select a video file first!");
+                return;
+            }
+
+            // Add the video file to FormData
+            formData.append("file", fileInput.files[0]);
+
+            // Preview the selected video
+            const file = fileInput.files[0];
+            const url = URL.createObjectURL(file);
+            videoPlayer.src = url;
+            videoPlayer.play();
+
+            try {
+                // Upload the video file to the server
+                const response = await fetch("/upload", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to upload video");
+                }
+
+                const data = await response.json();
+
+                // Display detection results
+                const liveResults = document.getElementById("live-results");
+                liveResults.innerHTML = ""; // Clear previous results
+
+                data.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.animal} detected at ${item.time}`;
+                    liveResults.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Error uploading video:", error);
+                alert("An error occurred while uploading the video.");
+            }
+        });
+    </script>
+</body>
+</html>

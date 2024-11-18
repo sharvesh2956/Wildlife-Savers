@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #ADD8E6; /* Light blue water color */
+            height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #90EE90; /* Light green color */
+            height: 80px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px; /* Spacing between menu items */
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: 'Lobster', cursive;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #f8d84b;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            margin-top: 100px; /* Leave space for fixed header */
+            padding: 20px;
+        }
+
+        .content h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #004d99;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #004d99;
+        }
+
+        .form-container input,
+        .form-container textarea,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #90EE90;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #77c877;
+        }
+
+        .footer {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer .wave {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .footer .wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+        }
+
+        .footer .wave path {
+            fill: #90EE90;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Header with Menu -->
+    <div class="header">
+        <nav class="menu">
+            <a href="/">Home</a>
+            <a href="upload">Upload Video</a>
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Contact Us</h1>
+        <div class="form-container">
+            <form action="/send_message" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Enter your message here..." required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120">
+                <path d="M0,0V46.29c47.88,22.83,98.5,36,146.5,32.81,48.71-3.22,94.68-25.35,143.37-32.33,44.08-6.26,90.76.74,128.86,19.85,21.45,11.06,38.26,27.31,59.33,39.59,41.88,25.11,98.67,33.93,146.5,26.57C703.74,125.6,745.92,96.92,790.79,81.57c45.44-15.49,96.91-13.11,140.2,3.25,22.64,8.49,48.46,22.68,72.36,27.24,51.24,9.58,103.56-4.91,145.37-36.22V0Z"></path>
+            </svg>
+        </div>
+        <p>&copy; 2024 Wild Animal Detection | Powered by Wildlife Insights</p>
+    </div>
+</body>
+
+</html>
